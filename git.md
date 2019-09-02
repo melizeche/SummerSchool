@@ -1,47 +1,36 @@
-# Ex.
-# Create a function that takes a nested list as a argument
-# and a search value and returns the ocurrences of an item
-nested_list = [[1,2,3],[6,7,6],[1,6,3]]
-# nested_occurrences(nested_list,6) ----> 3
+# Ex. 
+* Create a repository in github called SummerSchool
+* Initialize your summerschool folder as a git repo (`git init`)
+* add some files using the terminal (`git add ...`) 
+* commit your changes with a meaningful commit message (`git commit -m "..."`)
+* add remote origin (`git remote add origin git@................. `)
+* push your changes to the remote repository (`git push origin master`)
+## Initialize repo
+ `git init`
 
-# Hint: use nested for loops
+## Add changes
+ `git add file1.py file2.py`
 
-def nested_occurrences(a_list, a_number):
-    counter = 0
-    for every_list in a_list:
-        for element in every_list:
-            if element==a_number:
-                counter += 1
-    return counter
+ `git add *` <---- add all files
 
-def nested_occurrences_indexes(a_list, a_number):
-    counter = 0
-    for row_index in range(len(a_list)): # [0,1,2,3]
-        for col_index in range(len(a_list[row_index])):
-            if a_list[row_index][col_index]==a_number:
-                counter += 1
-    return counter
+## Commit
+ `git commit -m "Descriptive commit message"
 
-print(nested_occurrences(nested_list,6))
-print(nested_occurrences_indexes(nested_list,6))
+## Pull remote changes to local repo
+git will gonna pull remote changes and gonna try to merge the remote changes with yours
 
+ `git pull origin master`
 
+## Push local changes to remote repo
+ `git push origin master`
 
-# Ex.2
-# Create a function that takes number of rows and number of
-# columns and returns a nested list with of that size
-# with all elements = 0
+Tip: Always pull for changes before push your changes
 
-# create_nested(2,3) --> [[0,0,0],[0,0,0]]
-# create_nested(3,3) --> [[0,0,0],[0,0,0],[0,0,0]]
-
-def new_nested_list(rows, cols):
-    nested_list = []
-    for each_row in range(rows):
-        new_row=[]
-        for each_col in range(cols):
-            new_row.append("0")
-        nested_list.append(new_row)
-    return nested_list
-
-print(new_nested_list(2,3))
+## Merge conflicts
+If your local changes are in conflict with the remote one(i.e: both modified same line) you need to solve that conflict manually, how?
+* Open the file
+* Edit it with the final version
+* Save the file
+* `git add the_file.py`
+* Commit the fix: `git commit -m "Fix merge conflict in the_file.py"`
+* push the final version `git push origin  master`
